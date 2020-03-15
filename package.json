@@ -12,6 +12,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:styles": "postcss src/Presentation/Css/tailwind.src.css -o src/Presentation/Css/tailwind.css",
+    "prettier": "prettier --write src/**/*.{ts,js,tsx,jsx}",
     "prebuild": "NODE_ENV=production yarn build:styles",
     "prestart": "yarn build:styles"
   },
@@ -30,6 +31,14 @@
       "last 1 safari version"
     ]
   },
+  "prettier": {
+    "tabWidth": 3
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "precise-commits"
+    }
+  },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -38,7 +47,10 @@
     "@types/jest": "^25.1.4",
     "@types/react": "^16.9.23",
     "autoprefixer": "^9.7.4",
+    "husky": "^4.2.3",
     "postcss-cli": "^7.1.0",
+    "precise-commits": "^1.0.2",
+    "prettier": "^1.19.1",
     "react-scripts": "3.4.0",
     "tailwindcss": "^1.2.0",
     "typescript": "^3.8.3"
