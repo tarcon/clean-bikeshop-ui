@@ -32,7 +32,10 @@
     ]
   },
   "prettier": {
-    "tabWidth": 3
+    "tabWidth": 3,
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "es5"
   },
   "husky": {
     "hooks": {
