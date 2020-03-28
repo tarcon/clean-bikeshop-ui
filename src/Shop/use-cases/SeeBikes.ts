@@ -1,11 +1,10 @@
-import { BikePersistenceInterface } from "../persistence/BikePersistenceInterface"
+import { ProvidesBikes } from "../storage/ProvidesBikes"
 
 export class SeeBikes {
+   private _bikeStorage: ProvidesBikes
 
-   private _bikePersistence: BikePersistenceInterface
-
-   constructor(bikePersistence: BikePersistenceInterface) {
-      this._bikePersistence = bikePersistence
+   constructor(bikeStorage: ProvidesBikes) {
+      this._bikeStorage = bikeStorage
    }
 
    public execute() {

@@ -4,7 +4,7 @@ export type StoredBike = {
    description: string
 }
 
-export class BikeDatabase {
+export class BikeStorage {
    public static StoredBikes: Array<StoredBike> = [
       {
          name: "Carbono R3",
