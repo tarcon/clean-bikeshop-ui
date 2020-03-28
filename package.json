@@ -14,7 +14,8 @@
     "build:styles": "postcss src/Presentation/Css/tailwind.src.css -o src/Presentation/Css/tailwind.css",
     "prettier": "prettier --write src/**/*.{ts,js,tsx,jsx}",
     "prebuild": "NODE_ENV=production yarn build:styles",
-    "prestart": "yarn build:styles"
+    "prestart": "yarn build:styles",
+    "precommit": "npm run precise-commits"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,11 +37,6 @@
     "semi": false,
     "singleQuote": false,
     "trailingComma": "es5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "precise-commits"
-    }
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
