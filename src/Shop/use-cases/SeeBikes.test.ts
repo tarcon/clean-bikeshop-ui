@@ -14,12 +14,4 @@ describe("SeeBikes use case", () => {
       }).not.toThrow()
    })
 
-   it("returns an empty response model when no bikes are stored", () => {
-      const useCase = new SeeBikes(emptyBikeStorage)
-
-      const responseModel = useCase.execute()
-
-      expect(responseModel).toStrictEqual([])
-   })
-   
 })
