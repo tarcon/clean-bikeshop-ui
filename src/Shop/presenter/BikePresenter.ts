@@ -1,4 +1,4 @@
-import { DisplaysThings } from "./DisplaysThings"
+import { DisplaysThings } from "../boundaries/DisplaysThings"
 import { SeeBikesOutput } from "../use-cases/SeeBikes"
 
 export class BikePresenter implements DisplaysThings {

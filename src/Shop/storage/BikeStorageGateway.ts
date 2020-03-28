@@ -1,6 +1,6 @@
 import { BikeStorage, StoredBike } from "./BikeStorage"
 import { Bike } from "../entities/Bike"
-import { ProvidesBikes } from "./ProvidesBikes"
+import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 
 export class BikeStorageGateway implements ProvidesBikes {
 

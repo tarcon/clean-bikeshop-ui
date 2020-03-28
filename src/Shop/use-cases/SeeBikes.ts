@@ -1,5 +1,5 @@
-import { ProvidesBikes } from "../storage/ProvidesBikes"
-import { DisplaysThings } from "../presenter/DisplaysThings"
+import { ProvidesBikes } from "../boundaries/ProvidesBikes"
+import { DisplaysThings } from "../boundaries/DisplaysThings"
 
 export class SeeBikes {
    private _bikeStorage: ProvidesBikes
