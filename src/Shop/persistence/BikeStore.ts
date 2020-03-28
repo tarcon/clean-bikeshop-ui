@@ -1,7 +1,8 @@
 import { BikeDatabase, StoredBike } from "./BikeDatabase"
 import { Bike } from "../entities/Bike"
+import { BikePersistenceInterface } from "./BikePersistenceInterface"
 
-export class BikeStore {
+export class BikeStore implements BikePersistenceInterface {
    public static loadAvailableBikes(): Array<Bike> {
       return BikeDatabase.StoredBikes.map(BikeStore.mapToBike)
    }
