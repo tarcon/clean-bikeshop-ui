@@ -7,11 +7,15 @@ import { SeeBikes } from "../Shop/use-cases/SeeBikes"
 export function ShopContextProvider(props: { children: React.ReactNode }) {
    let [appViewModel, setAppViewModel] = useState({
       currentPage: Pages.Welcome,
+      currentPageViewModel: {}
    })
 
    const storage = new BikeStorageGateway()
-   const presenter = new BikePresenter(viewModel => {
-      console.log(viewModel)
+   const presenter = new BikePresenter(bikesViewModel => {
+      const state = { ...appViewModel }
+      state.currentPage = Pages.Bikes
+      state.currentPageViewModel = bikesViewModel
+      setAppViewModel(state)
    })
 
    const handleNavigateTo = (page: Pages) => {

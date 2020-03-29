@@ -1,4 +1,5 @@
 import React from "react"
+import { BikesViewModel } from "../Shop/presenter/BikesViewModel"
 
 export enum Pages {
    Welcome = "Welcome",
@@ -6,13 +7,14 @@ export enum Pages {
 }
 
 export type ShopContextValueType = {
-   useCases: object
+   useCases: { [x: string]: any }
    appViewModel: AppViewModelType
    navigateTo: (page: Pages) => void
 }
 
 export type AppViewModelType = {
    currentPage: Pages
+   currentPageViewModel: BikesViewModel | any
 }
 
 function initializeShopContextValue(): ShopContextValueType {
@@ -20,6 +22,7 @@ function initializeShopContextValue(): ShopContextValueType {
       useCases: {},
       appViewModel: {
          currentPage: Pages.Welcome,
+         currentPageViewModel: {}
       },
       navigateTo: () => {},
    }
