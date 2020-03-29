@@ -1,5 +1,5 @@
 import { DisplaysThings } from "../boundaries/DisplaysThings"
-import { SeeBikesOutput } from "../use-cases/SeeBikes"
+import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 
 export class BikePresenter implements DisplaysThings {
 

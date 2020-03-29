@@ -1,5 +1,5 @@
 import { BikePresenter } from "./BikePresenter"
-import { SeeBikesOutput } from "../use-cases/SeeBikes"
+import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 
 describe("Bike presenter", () => {
 
