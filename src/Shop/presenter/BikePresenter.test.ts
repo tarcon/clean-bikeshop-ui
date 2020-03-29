@@ -2,7 +2,18 @@ import { BikePresenter } from "./BikePresenter"
 
 describe("Bike presenter", () => {
 
-   it("can present an empty view model for an empty bike storage", () => {
+   it("generates empty view model for an empty store", () => {
+      //given
+      const sut = new BikePresenter()
+
+      //when
+      const viewModel = sut.showBikes([])
+
+      //then
+      expect(viewModel).toStrictEqual([])
+   })
+
+   it("generates a view model for a bike", () => {
       //given
       const sut = new BikePresenter()
 

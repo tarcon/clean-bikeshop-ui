@@ -3,14 +3,14 @@ import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 
 export class BikePresenter implements DisplaysThings {
 
-   public showBikes(bikesToPresent: SeeBikesOutput): BikesViewModel {
-      return bikesToPresent.map(bikeToPresent => ({
-         name: bikeToPresent.name,
-         price: bikeToPresent.price.toLocaleString("de-DE", {
+   public showBikes(presentableBikes: SeeBikesOutput): BikesViewModel {
+      return presentableBikes.map(bike => ({
+         name: bike.name,
+         price: bike.price.toLocaleString("de-DE", {
             style: "currency",
             currency: "EUR"
          }),
-         description: bikeToPresent.description
+         description: bike.description
       }))
    }
 

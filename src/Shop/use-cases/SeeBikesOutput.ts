@@ -1,3 +1,3 @@
-export type SeeBikesOutput = [
-   { name: string, price: number, description: string }
-]
+export type SeeBikesOutput = Array<SeeBikeOutput>
+
+export type SeeBikeOutput = { name: string, price: number, description: string }
