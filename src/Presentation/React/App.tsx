@@ -1,22 +1,33 @@
 import React, { useContext } from "react"
-import { ShopContext } from "../ShopContext"
+import { AppViewModelType, Pages, ShopContext } from "../ShopContext"
 import cyclistSvg from "./cyclist.svg"
 import cleanCodeImage from "./cleancode.jpg"
 
 function App() {
    const shopContext = useContext(ShopContext)
 
-   const content = <WelcomePage/>
+   const content = routeToCurrentPage(shopContext.appViewModel)
+
+   const handleNavigateWelcome = () => {
+      shopContext.navigateTo(Pages.Welcome)
+   }
+
+   const handleNavigateBikes = () => {
+      shopContext.navigateTo(Pages.Bikes)
+   }
 
    return (
       <>
          <Header/>
          <ul className="flex p-8">
             <li className="mr-6">
-               <a className="text-blue-500 hover:text-blue-800" href="#">Welcome</a>
+               <a className="text-blue-500 hover:text-blue-800" href="#" onClick={handleNavigateWelcome}>Welcome</a>
             </li>
             <li className="mr-6">
-               <a className="text-gray-400 cursor-not-allowed" href="#">See Bikes</a>
+               <a className="text-blue-500 hover:text-blue-800" href="#" onClick={handleNavigateBikes}>See Bikes</a>
+            </li>
+            <li className="mr-6">
+               <a className="text-gray-400 cursor-not-allowed" href="#">Shopping Cart</a>
             </li>
          </ul>
          <hr/>
@@ -55,4 +66,19 @@ function WelcomePage() {
          </div>
       </div>
    </div>
+}
+
+function BikesPage() {
+   return <div className="p-8">
+      <h2>Bikes</h2>
+   </div>
+}
+
+function routeToCurrentPage(appViewModel: AppViewModelType) {
+   switch (appViewModel.currentPage) {
+      case "Welcome":
+         return <WelcomePage/>
+      case "Bikes":
+         return <BikesPage/>
+   }
 }
