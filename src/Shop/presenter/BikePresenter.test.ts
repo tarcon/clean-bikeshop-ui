@@ -1,5 +1,4 @@
 import { BikePresenter } from "./BikePresenter"
-import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 
 describe("Bike presenter", () => {
 
@@ -7,18 +6,14 @@ describe("Bike presenter", () => {
       //given
       const sut = new BikePresenter()
 
-      const useCaseOutput: SeeBikesOutput = [
-         {name: "Bike1", price: 1337, description: "Description 1"}
-      ]
-
-      const expectedViewModel = [
-         {name: "Bike1", price: "1.337,00 €", description: "Description 1"}
-      ]
-
       //when
-      const viewModel = sut.showBikes(useCaseOutput)
+      const viewModel = sut.showBikes([
+         {name: "Bike1", price: 1337, description: "Description 1"}
+      ])
 
       //then
-      expect(viewModel).toStrictEqual(expectedViewModel)
+      expect(viewModel).toStrictEqual([
+         {name: "Bike1", price: "1.337,00 €", description: "Description 1"}
+      ])
    })
 })
