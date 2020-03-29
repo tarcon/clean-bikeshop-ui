@@ -1,7 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import logo from "./logo.svg"
+import { ShopContext } from "../ShopContext"
 
 function App() {
+   const shopContext = useContext(ShopContext)
+
+   shopContext.useCases["SeeBikes"].execute()
+
    return (
       <div className="App">
          <header className="App-header">
