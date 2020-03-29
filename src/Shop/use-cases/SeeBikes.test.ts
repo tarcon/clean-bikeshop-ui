@@ -3,25 +3,13 @@ import { DisplaysThings } from "../boundaries/DisplaysThings"
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 import { Bike } from "../entities/Bike"
 
-
 describe("SeeBikes use case", () => {
-   let emptyBikeStorage = {
-      fetchPurchasableBikes: jest.fn().mockReturnValue([]),
-   } as ProvidesBikes
-
-   let bikeStorage = {
-      fetchPurchasableBikes: jest.fn().mockReturnValue(
-         [{name: "Bike", price: 1000, description: "nice Bike" } as Bike]
-      ),
-   } as ProvidesBikes
-
-   let ui = {
-      showBikes: jest.fn()
-
-   } as DisplaysThings
+   let mockEmptyStorage: ProvidesBikes
+   let mockStorage: ProvidesBikes
+   let mockUi: DisplaysThings
 
    it("can be executed", () => {
-      const useCase = new SeeBikes(emptyBikeStorage, ui)
+      const useCase = new SeeBikes(mockEmptyStorage, mockUi)
 
       expect(() => {
          useCase.execute()
@@ -29,21 +17,42 @@ describe("SeeBikes use case", () => {
    })
 
    it("outputs no bikes to the presenter for an empty storage", () => {
-      const useCase = new SeeBikes(emptyBikeStorage, ui)
+      const useCase = new SeeBikes(mockEmptyStorage, mockUi)
 
       useCase.execute()
 
-      expect(ui.showBikes).toHaveBeenCalled()
-      expect(ui.showBikes).toHaveBeenCalledWith([])
+      expect(mockUi.showBikes).toHaveBeenCalled()
+      expect(mockUi.showBikes).toHaveBeenCalledWith([])
    })
 
    it("outputs bikes to the presenter", () => {
-      const useCase = new SeeBikes(bikeStorage, ui)
+      const useCase = new SeeBikes(mockStorage, mockUi)
 
       useCase.execute()
 
-      expect(ui.showBikes).toHaveBeenCalled()
-      expect(ui.showBikes).toHaveBeenCalledWith([{name: "Bike", price: 1000, description: "nice Bike" }])
+      expect(mockUi.showBikes).toHaveBeenCalled()
+      expect(mockUi.showBikes).toHaveBeenCalledWith([
+         { name: "Bike", price: 1000, description: "nice Bike" },
+      ])
    })
 
+   beforeAll(() => {
+      jest.resetAllMocks()
+
+      mockEmptyStorage = {
+         fetchPurchasableBikes: jest.fn().mockReturnValue([]),
+      }
+
+      mockStorage = {
+         fetchPurchasableBikes: jest
+            .fn()
+            .mockReturnValue([
+               { name: "Bike", price: 1000, description: "nice Bike" } as Bike,
+            ]),
+      }
+
+      mockUi = {
+         showBikes: jest.fn(),
+      }
+   })
 })
