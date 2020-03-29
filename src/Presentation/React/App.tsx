@@ -25,13 +25,13 @@ function App() {
          <Header/>
          <ul className="flex p-8">
             <li className="mr-6">
-               <a className="text-blue-500 hover:text-blue-800" href="#" onClick={handleNavigateWelcome}>Welcome</a>
+               <button className="text-blue-500 hover:text-blue-800" onClick={handleNavigateWelcome}>Welcome</button>
             </li>
             <li className="mr-6">
-               <a className="text-blue-500 hover:text-blue-800" href="#" onClick={handleNavigateBikes}>See Bikes</a>
+               <button className="text-blue-500 hover:text-blue-800" onClick={handleNavigateBikes}>See Bikes</button>
             </li>
             <li className="mr-6">
-               <a className="text-gray-400 cursor-not-allowed" href="#">Shopping Cart</a>
+               <button className="text-gray-400 cursor-not-allowed" >Shopping Cart</button>
             </li>
          </ul>
          <hr/>
