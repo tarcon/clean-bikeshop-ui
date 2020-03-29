@@ -19,13 +19,15 @@ export class SeeBikes {
       this._ui.showBikes(bikesOutput)
    }
 
-   private static mapToOutput(bikes: Array<Bike>): SeeBikesOutput{
+   private static mapToOutput(bikes: Array<Bike>): SeeBikesOutput {
       return bikes.map(SeeBikes.mapBikeToBikeOutput)
    }
 
    private static mapBikeToBikeOutput(bike: Bike): SeeBikeOutput {
-      return { name: bike.name, price: bike.price, description: bike.description }
+      return {
+         name: bike.name,
+         price: bike.price,
+         description: bike.description,
+      }
    }
-
 }
-
