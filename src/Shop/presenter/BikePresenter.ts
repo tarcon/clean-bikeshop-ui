@@ -1,5 +1,6 @@
 import { DisplaysThings } from "../boundaries/DisplaysThings"
 import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
+import { BikesViewModel } from "./BikesViewModel"
 
 export class BikePresenter implements DisplaysThings {
    public showBikes(presentableBikes: SeeBikesOutput): BikesViewModel {
@@ -12,12 +13,4 @@ export class BikePresenter implements DisplaysThings {
          description: bike.description,
       }))
    }
-}
-
-type BikesViewModel = Array<BikeViewModel>
-
-type BikeViewModel = {
-   name: string
-   price: string
-   description: string
 }
