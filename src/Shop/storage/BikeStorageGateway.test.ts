@@ -3,7 +3,6 @@ import { BikeStorage } from "./BikeStorage"
 import { Bike } from "../entities/Bike"
 
 describe("Bike storage", () => {
-
    it("can load available bikes", () => {
       const bikes = new BikeStorageGateway().fetchPurchasableBikes()
       expect(bikes).toHaveLength(3)
@@ -38,7 +37,11 @@ describe("Bike storage", () => {
       const fetchedBikes = new BikeStorageGateway().fetchPurchasableBikes()
 
       expect(fetchedBikes).toHaveLength(2)
-      expect(fetchedBikes[0]).toStrictEqual(new Bike("name", 1337, "description"))
-      expect(fetchedBikes[1]).toStrictEqual(new Bike("name2", 123, "description2"))
+      expect(fetchedBikes[0]).toStrictEqual(
+         new Bike("name", 1337, "description")
+      )
+      expect(fetchedBikes[1]).toStrictEqual(
+         new Bike("name2", 123, "description2")
+      )
    })
 })

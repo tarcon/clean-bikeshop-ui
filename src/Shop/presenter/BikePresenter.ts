@@ -2,18 +2,16 @@ import { DisplaysThings } from "../boundaries/DisplaysThings"
 import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 
 export class BikePresenter implements DisplaysThings {
-
    public showBikes(presentableBikes: SeeBikesOutput): BikesViewModel {
       return presentableBikes.map(bike => ({
          name: bike.name,
          price: bike.price.toLocaleString("de-DE", {
             style: "currency",
-            currency: "EUR"
+            currency: "EUR",
          }),
-         description: bike.description
+         description: bike.description,
       }))
    }
-
 }
 
 type BikesViewModel = Array<BikeViewModel>

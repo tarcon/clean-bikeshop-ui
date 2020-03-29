@@ -3,7 +3,6 @@ import { Bike } from "../entities/Bike"
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 
 export class BikeStorageGateway implements ProvidesBikes {
-
    public fetchPurchasableBikes(): Array<Bike> {
       return BikeStorage.StoredBikes.map(BikeStorageGateway.mapToBike)
    }
