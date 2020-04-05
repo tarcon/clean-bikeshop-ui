@@ -1,13 +1,13 @@
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
-import { DisplaysThings } from "../boundaries/DisplaysThings"
+import { DisplaysBikes } from "../boundaries/DisplaysBikes"
 import { Bike } from "../entities/Bike"
 import { SeeBikeOutput, SeeBikesOutput } from "./SeeBikesOutput"
 
 export class SeeBikes {
    private _bikeStorage: ProvidesBikes
-   private _ui: DisplaysThings
+   private _ui: DisplaysBikes
 
-   constructor(bikeStorage: ProvidesBikes, ui: DisplaysThings) {
+   constructor(bikeStorage: ProvidesBikes, ui: DisplaysBikes) {
       this._bikeStorage = bikeStorage
       this._ui = ui
    }

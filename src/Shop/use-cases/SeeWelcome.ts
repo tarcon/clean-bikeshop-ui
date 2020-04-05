@@ -1,14 +1,14 @@
-import { DisplaysThings } from "../boundaries/DisplaysThings"
+import { DisplaysWelcome } from "../boundaries/DisplaysWelcome"
 
 export class SeeWelcome {
-   private _ui: DisplaysThings
+   private _ui: DisplaysWelcome
 
 
-   constructor(ui: DisplaysThings) {
+   constructor(ui: DisplaysWelcome) {
       this._ui = ui
    }
 
    execute() {
-
+      this._ui.showWelcome()
    }
 }

@@ -1,12 +1,12 @@
 import { SeeBikes } from "./SeeBikes"
-import { DisplaysThings } from "../boundaries/DisplaysThings"
+import { DisplaysBikes } from "../boundaries/DisplaysBikes"
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 import { Bike } from "../entities/Bike"
 
 describe("SeeBikes use case", () => {
    let mockEmptyStorage: ProvidesBikes
    let mockStorage: ProvidesBikes
-   let mockUi: DisplaysThings
+   let mockUi: DisplaysBikes
 
    it("can be executed", () => {
       const useCase = new SeeBikes(mockEmptyStorage, mockUi)
