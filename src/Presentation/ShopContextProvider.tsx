@@ -7,7 +7,7 @@ import { SeeBikes } from "../Shop/use-cases/SeeBikes"
 export function ShopContextProvider(props: { children: React.ReactNode }) {
    let [appViewModel, setAppViewModel] = useState({
       currentPage: Pages.Welcome,
-      currentPageViewModel: {}
+      currentPageViewModel: {},
    })
 
    const storage = new BikeStorageGateway()
