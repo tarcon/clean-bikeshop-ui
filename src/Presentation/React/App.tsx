@@ -1,11 +1,12 @@
 import React, { useContext } from "react"
-import { AppViewModelType, Pages, ShopContext } from "../ShopContext"
+import { AppViewModelType, ShopContext } from "../ShopContext"
 import cyclistSvg from "./cyclist.svg"
 import cleanCodeImage from "./cleancode.jpg"
 import dungeonBikeImage from "./dungeon.jpg"
 import gworksBikeImage from "./gworks.jpg"
 import carbonoBikeImage from "./carbono.jpg"
 import { BikesViewModel } from "../../Shop/presenter/BikesViewModel"
+import { WelcomeViewModel } from "../../Shop/presenter/WelcomeViewModel"
 
 function App() {
    const shopContext = useContext(ShopContext)
@@ -13,7 +14,7 @@ function App() {
    const content = routeToCurrentPage(shopContext.appViewModel)
 
    const handleNavigateWelcome = () => {
-      shopContext.navigateTo(Pages.Welcome)
+      shopContext.useCases["SeeWelcome"].execute()
    }
 
    const handleNavigateBikes = () => {
@@ -31,7 +32,7 @@ function App() {
                <button className="text-blue-500 hover:text-blue-800" onClick={handleNavigateBikes}>See Bikes</button>
             </li>
             <li className="mr-6">
-               <button className="text-gray-400 cursor-not-allowed" >Shopping Cart</button>
+               <button className="text-gray-400 cursor-not-allowed">Shopping Cart</button>
             </li>
          </ul>
          <hr/>
@@ -56,12 +57,11 @@ function Header() {
    </>
 }
 
-function WelcomePage() {
+function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
    return <div className="p-8">
       <div className="flex mb-4">
          <div className="w-1/2 h-12">
-            <p> Welcome to our online bikeshop with clean architecture. Order your bike in the knowledge that our
-               digital systems are built in the technically most sustainable way imaginable.</p>
+            <p>{props.welcomeViewModel.welcomeText}</p>
          </div>
          <div className="w-1/2 h-12">
             <div className="flex items-center">
@@ -118,8 +118,8 @@ function BikeProductCard({ name, price, description }: any) {
 function routeToCurrentPage(appViewModel: AppViewModelType) {
    switch (appViewModel.currentPage) {
       case "Welcome":
-         return <WelcomePage/>
+         return <WelcomePage welcomeViewModel={appViewModel.currentPageViewModel as WelcomeViewModel}/>
       case "Bikes":
-         return <BikesPage bikesViewModel={appViewModel.currentPageViewModel}/>
+         return <BikesPage bikesViewModel={appViewModel.currentPageViewModel as BikesViewModel}/>
    }
 }
