@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { AppViewModelType, ShopContext } from "../ShopContext"
+import { ShopContext } from "../ShopContext"
 import cyclistSvg from "./cyclist.svg"
 import cleanCodeImage from "./cleancode.jpg"
 import dungeonBikeImage from "./dungeon.jpg"
@@ -7,11 +7,24 @@ import gworksBikeImage from "./gworks.jpg"
 import carbonoBikeImage from "./carbono.jpg"
 import { BikesViewModel } from "../../Shop/presenter/BikesViewModel"
 import { WelcomeViewModel } from "../../Shop/presenter/WelcomeViewModel"
+import { AppViewModel } from "../ShopContextProvider"
 
 function App() {
    const shopContext = useContext(ShopContext)
 
    const content = routeToCurrentPage(shopContext.appViewModel)
+
+   function routeToCurrentPage(appViewModel: AppViewModel) {
+      switch (appViewModel.currentPage) {
+         case "Welcome":
+            return <WelcomePage welcomeViewModel={appViewModel.currentPageViewModel as WelcomeViewModel}/>
+         case "Bikes":
+            return <BikesPage bikesViewModel={appViewModel.currentPageViewModel as BikesViewModel}/>
+         case "Empty":
+         default:
+            return <div/>
+      }
+   }
 
    const handleNavigateWelcome = () => {
       shopContext.useCases["SeeWelcome"].execute()
@@ -113,13 +126,4 @@ function BikeProductCard({ name, price, description }: any) {
       </div>
    </div>
 
-}
-
-function routeToCurrentPage(appViewModel: AppViewModelType) {
-   switch (appViewModel.currentPage) {
-      case "Welcome":
-         return <WelcomePage welcomeViewModel={appViewModel.currentPageViewModel as WelcomeViewModel}/>
-      case "Bikes":
-         return <BikesPage bikesViewModel={appViewModel.currentPageViewModel as BikesViewModel}/>
-   }
 }

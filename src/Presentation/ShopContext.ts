@@ -1,30 +1,27 @@
 import React from "react"
+import { AppViewModel } from "./ShopContextProvider"
 
 export enum Pages {
+   Empty = "Empty",
    Welcome = "Welcome",
    Bikes = "Bikes",
 }
 
-export type ShopContextValueType = {
+export type ShopContextValue = {
    useCases: { [x: string]: any }
-   appViewModel: AppViewModelType
+   appViewModel: AppViewModel
 }
 
-export type AppViewModelType = {
-   currentPage: Pages
-   currentPageViewModel: object
-}
-
-function initializeShopContextValue(): ShopContextValueType {
+function initializeShopContextValue(): ShopContextValue {
    return {
       useCases: {},
       appViewModel: {
-         currentPage: Pages.Welcome,
+         currentPage: Pages.Empty,
          currentPageViewModel: {},
       }
    }
 }
 
-export const ShopContext = React.createContext<ShopContextValueType>(
+export const ShopContext = React.createContext<ShopContextValue>(
    initializeShopContextValue()
 )
