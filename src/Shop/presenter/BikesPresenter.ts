@@ -2,7 +2,7 @@ import { DisplaysThings } from "../boundaries/DisplaysThings"
 import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 import { BikesViewModel } from "./BikesViewModel"
 
-export class BikePresenter implements DisplaysThings {
+export class BikesPresenter implements DisplaysThings {
 
    private _renderFn: (viewModel: any) => void
 

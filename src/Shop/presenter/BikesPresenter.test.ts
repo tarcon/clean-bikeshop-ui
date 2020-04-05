@@ -1,10 +1,10 @@
-import { BikePresenter } from "./BikePresenter"
+import { BikesPresenter } from "./BikesPresenter"
 
 describe("Bike presenter", () => {
    it("generates empty view model for an empty store", () => {
       //given
       const testRenderFn = jest.fn()
-      const sut = new BikePresenter(testRenderFn)
+      const sut = new BikesPresenter(testRenderFn)
 
       //when
       sut.showBikes([])
@@ -16,7 +16,7 @@ describe("Bike presenter", () => {
    it("generates a view model for a bike", () => {
       //given
       const testRenderFn = jest.fn()
-      const sut = new BikePresenter(testRenderFn)
+      const sut = new BikesPresenter(testRenderFn)
 
       //when
       sut.showBikes([
