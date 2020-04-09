@@ -4,16 +4,16 @@ import { Bike } from "../entities/Bike"
 import { SeeBikeOutput, SeeBikesOutput } from "./SeeBikesOutput"
 
 export class SeeBikes {
-   private _bikeStorage: ProvidesBikes
+   private _bikeBackend: ProvidesBikes
    private _ui: DisplaysBikes
 
-   constructor(bikeStorage: ProvidesBikes, ui: DisplaysBikes) {
-      this._bikeStorage = bikeStorage
+   constructor(bikeBackend: ProvidesBikes, ui: DisplaysBikes) {
+      this._bikeBackend = bikeBackend
       this._ui = ui
    }
 
    public async execute(): Promise<void> {
-      const fetchedBikes = await this._bikeStorage.fetchPurchasableBikes()
+      const fetchedBikes = await this._bikeBackend.fetchPurchasableBikes()
 
       const bikesOutput = SeeBikes.mapToOutput(fetchedBikes)
       this._ui.showBikes(bikesOutput)

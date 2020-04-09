@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { BikeStorageGateway } from "../Shop/storage/BikeStorageGateway"
 import { BikesPresenter } from "../Shop/presenter/BikesPresenter"
 import { Pages, ShopContext } from "./ShopContext"
 import { SeeBikes } from "../Shop/use-cases/SeeBikes"
 import { WelcomePresenter } from "../Shop/presenter/WelcomePresenter"
 import { SeeWelcome } from "../Shop/use-cases/SeeWelcome"
+import { BikeBackendGateway } from "../Shop/network/BikeBackendGateway"
 
 export type AppViewModel = {
    currentPage: Pages
@@ -17,7 +17,7 @@ export function ShopContextProvider(props: { children: React.ReactNode }) {
       currentPageViewModel: {},
    })
 
-   const storage = new BikeStorageGateway()
+   const bikeBackend = new BikeBackendGateway()
 
    const welcomePresenter = new WelcomePresenter(welcomeViewModel => {
       const state = {
@@ -39,7 +39,7 @@ export function ShopContextProvider(props: { children: React.ReactNode }) {
 
    const useCases = {
       SeeWelcome: new SeeWelcome(welcomePresenter),
-      SeeBikes: new SeeBikes(storage, bikesPresenter),
+      SeeBikes: new SeeBikes(bikeBackend, bikesPresenter),
    }
 
    useEffect(() => {

@@ -4,9 +4,6 @@ import { StoredBikeDto } from "./dto/StoredBikeDto"
 
 export class BikeBackendGateway implements ProvidesBikes {
 
-   constructor() {
-   }
-
    async fetchPurchasableBikes(): Promise<Array<Bike>> {
       const storedBikes = await fetch("http://api.bikeshop.de/bikes")
       return storedBikes.map(BikeBackendGateway.mapToBike)
