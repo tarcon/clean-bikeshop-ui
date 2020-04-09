@@ -1,4 +1,4 @@
-import { BikesViewModel } from "../../../../Shop/presenter/BikesViewModel"
+import { BikesViewModel } from "../../../Shop/presenter/BikesViewModel"
 import React from "react"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
