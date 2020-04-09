@@ -11,6 +11,7 @@ export class BikeStorageGateway implements ProvidesBikes {
       return new Bike(
          storedBike.name,
          parseInt(storedBike.price),
+         storedBike.productImageUrl,
          storedBike.description
       )
    }
