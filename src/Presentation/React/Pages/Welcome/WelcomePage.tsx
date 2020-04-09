@@ -1,5 +1,5 @@
 import { WelcomeViewModel } from "../../../../Shop/presenter/WelcomeViewModel"
-import cleanCodeImage from "../../cleancode.jpg"
+
 import React from "react"
 
 export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
@@ -10,7 +10,7 @@ export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
          </div>
          <div className="w-1/2 h-12">
             <div className="flex items-center">
-               <img src={cleanCodeImage} alt="Powered by clean code" className="m-4"/>
+               <img src="./img/cleancode.jpg" alt="Powered by clean code" className="m-4"/>
             </div>
          </div>
       </div>
