@@ -1,13 +1,11 @@
 import React, { useContext } from "react"
 import { ShopContext } from "../ShopContext"
 import cyclistSvg from "./cyclist.svg"
-import cleanCodeImage from "./cleancode.jpg"
-import dungeonBikeImage from "./dungeon.jpg"
-import gworksBikeImage from "./gworks.jpg"
-import carbonoBikeImage from "./carbono.jpg"
 import { BikesViewModel } from "../../Shop/presenter/BikesViewModel"
 import { WelcomeViewModel } from "../../Shop/presenter/WelcomeViewModel"
 import { AppViewModel } from "../ShopContextProvider"
+import { BikesPage } from "./Pages/Bikes/BikesPage"
+import { WelcomePage } from "./Pages/Welcome/WelcomePage"
 
 function App() {
    const shopContext = useContext(ShopContext)
@@ -68,62 +66,4 @@ function Header() {
          </div>
       </nav>
    </>
-}
-
-function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
-   return <div className="p-8">
-      <div className="flex mb-4">
-         <div className="w-1/2 h-12">
-            <p>{props.welcomeViewModel.welcomeText}</p>
-         </div>
-         <div className="w-1/2 h-12">
-            <div className="flex items-center">
-               <img src={cleanCodeImage} alt="Powered by clean code" className="m-4"/>
-            </div>
-         </div>
-      </div>
-   </div>
-}
-
-function BikesPage(props: { bikesViewModel: BikesViewModel }) {
-   return <div className="p-8">
-      <h2>Bikes</h2>
-      <div className="grid grid-flow-col gap-4 top">
-         {props.bikesViewModel.map(bike =>
-            <BikeProductCard key={bike.name}
-                             name={bike.name}
-                             price={bike.price}
-                             description={bike.description}/>,
-         )}
-      </div>
-   </div>
-}
-
-function BikeProductCard({ name, price, description }: any) {
-
-   const selectBikeImage = (name: string) => {
-      switch (name) {
-         case "Carbono R3":
-            return carbonoBikeImage
-         case "Generalized Asphalt G-Works":
-            return gworksBikeImage
-         case "Dungeon Ultra SLX":
-            return dungeonBikeImage
-      }
-   }
-
-   return <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10 object-top">
-      <div className="px-4 py-2 h-32">
-         <h3 className="text-gray-900 font-bold text-1xl uppercase">{name}</h3>
-         <p className="text-gray-600 text-sm mt-1">{description}</p>
-      </div>
-      <img className="h-56 w-full object-cover mt-2"
-           src={selectBikeImage(name)}
-           alt="NIKE AIR"/>
-      <div className="flex items-center justify-between px-4 py-2 bg-blue-700">
-         <h1 className="text-gray-200 font-bold text-xl">{price}</h1>
-         <button className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded">Add to cart</button>
-      </div>
-   </div>
-
 }

@@ -1,0 +1,18 @@
+import { WelcomeViewModel } from "../../../../Shop/presenter/WelcomeViewModel"
+import cleanCodeImage from "../../cleancode.jpg"
+import React from "react"
+
+export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
+   return <div className="p-8">
+      <div className="flex mb-4">
+         <div className="w-1/2 h-12">
+            <p>{props.welcomeViewModel.welcomeText}</p>
+         </div>
+         <div className="w-1/2 h-12">
+            <div className="flex items-center">
+               <img src={cleanCodeImage} alt="Powered by clean code" className="m-4"/>
+            </div>
+         </div>
+      </div>
+   </div>
+}
