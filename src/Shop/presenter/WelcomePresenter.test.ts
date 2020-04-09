@@ -1,6 +1,6 @@
 import { WelcomePresenter } from "./WelcomePresenter"
 
-describe("Welcome presenter", () => {
+describe("welcome presenter", () => {
    let testRenderFn = jest.fn()
 
    it("generates a view model which contains the welcome string", () => {

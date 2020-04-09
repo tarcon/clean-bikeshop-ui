@@ -16,7 +16,7 @@ export class WelcomePresenter implements DisplaysWelcome {
    }
 
    private static createWelcomeText() {
-      return "Welcome to our online bikeshop with clean architecture. Order your bike in the knowledge that our digital systems are built in the technically most sustainable way imaginable."
+      return "welcome to our online bikeshop with clean architecture. Order your bike in the knowledge that our digital systems are built in the technically most sustainable way imaginable."
    }
 
 }

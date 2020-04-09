@@ -4,8 +4,8 @@ import cyclistSvg from "./cyclist.svg"
 import { BikesViewModel } from "../Shop/presenter/BikesViewModel"
 import { WelcomeViewModel } from "../Shop/presenter/WelcomeViewModel"
 import { AppViewModel } from "./ShopContextProvider"
-import { BikesPage } from "./Pages/Bikes/BikesPage"
-import { WelcomePage } from "./Pages/Welcome/WelcomePage"
+import { BikesPage } from "./pages/bikes/BikesPage"
+import { WelcomePage } from "./pages/welcome/WelcomePage"
 
 function App() {
    const shopContext = useContext(ShopContext)
