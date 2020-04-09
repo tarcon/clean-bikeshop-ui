@@ -10,9 +10,9 @@ describe("Bike storage", () => {
 
    it("can map stored bike entity to domain bike entity", () => {
       BikeStorage.StoredBikes = [
-         { name: "name", price: "1337", productImageUrl: "someUrl", description: "description" },
+         { name: "name", price: "1337", productImageFileName: "file.jpg", description: "description" },
       ]
-      const expectedBike = new Bike("name", 1337, "someUrl", "description")
+      const expectedBike = new Bike("name", 1337, "file.jpg", "description")
 
       const fetchedBikes = new BikeStorageGateway().fetchPurchasableBikes()
 
@@ -30,18 +30,18 @@ describe("Bike storage", () => {
 
    it("returns available stored bikes", () => {
       BikeStorage.StoredBikes = [
-         { name: "name", price: "1337", productImageUrl: "someUrl1", description: "description" },
-         { name: "name2", price: "123", productImageUrl: "someUrl2", description: "description2" },
+         { name: "name", price: "1337", productImageFileName: "file1.jpg", description: "description" },
+         { name: "name2", price: "123", productImageFileName: "file2.jpg", description: "description2" },
       ]
 
       const fetchedBikes = new BikeStorageGateway().fetchPurchasableBikes()
 
       expect(fetchedBikes).toHaveLength(2)
       expect(fetchedBikes[0]).toStrictEqual(
-         new Bike("name", 1337, "someUrl1", "description")
+         new Bike("name", 1337, "file1.jpg", "description")
       )
       expect(fetchedBikes[1]).toStrictEqual(
-         new Bike("name2", 123, "someUrl2", "description2")
+         new Bike("name2", 123, "file2.jpg", "description2")
       )
    })
 })

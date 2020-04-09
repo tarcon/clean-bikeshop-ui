@@ -1,13 +1,13 @@
 export class Bike {
    private _name: string
    private _price: number
-   private _productImageUrl: string
+   private _productImageFileName: string
    private _description: string
 
-   constructor(name: string, price: number, productImageUrl: string, description: string) {
+   constructor(name: string, price: number, productImageFileName: string, description: string) {
       this._name = name
       this._price = price
-      this._productImageUrl = productImageUrl
+      this._productImageFileName = productImageFileName
       this._description = description
    }
 
@@ -19,8 +19,8 @@ export class Bike {
       return this._price
    }
 
-   get productImageUrl(): string {
-      return this._productImageUrl
+   get productImageFileName(): string {
+      return this._productImageFileName
    }
 
    get description(): string {

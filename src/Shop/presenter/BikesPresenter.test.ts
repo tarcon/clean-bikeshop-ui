@@ -20,12 +20,12 @@ describe("Bike presenter", () => {
 
       //when
       sut.showBikes([
-         { name: "Bike1", price: 1337, description: "Description 1" },
+         { name: "Bike1", price: 1337, productImageFileName: "file.jpg", description: "Description 1" },
       ])
 
       //then
       expect(testRenderFn).toHaveBeenCalledWith([
-         { name: "Bike1", price: "1.337,00 €", description: "Description 1" },
+         { name: "Bike1", price: "1.337,00 €", productImageUrl: "./img/file.jpg", description: "Description 1" },
       ])
    })
 })

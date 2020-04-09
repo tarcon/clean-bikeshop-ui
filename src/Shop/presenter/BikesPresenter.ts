@@ -22,7 +22,7 @@ export class BikesPresenter implements DisplaysBikes {
             style: "currency",
             currency: "EUR",
          }),
-         productImageUrl: bike.productImageUrl,
+         productImageUrl: "./img/" + bike.productImageFileName,
          description: bike.description,
       }))
    }
