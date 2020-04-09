@@ -10,7 +10,7 @@ export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
          </div>
          <div className="w-1/2 h-12">
             <div className="flex items-center">
-               <img src="./img/cleancode.jpg" alt="Powered by clean code" className="m-4"/>
+               <img src="./img/cleancode.jpg" alt="Powered by clean code" className="m-4 w-1/2"/>
             </div>
          </div>
       </div>
