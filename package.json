@@ -14,7 +14,7 @@
     "build:styles": "postcss src/Presentation/css/tailwind.src.css -o src/Presentation/css/tailwind.css",
     "prettier": "prettier --write src/**/*.{ts,js,tsx,jsx}",
     "prebuild": "NODE_ENV=production yarn build:styles",
-    "prestart": "yarn build:styles",
+    "prestart": "yarn build:styles"
   },
   "eslintConfig": {
     "extends": "react-app"
