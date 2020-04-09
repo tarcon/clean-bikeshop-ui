@@ -18,7 +18,7 @@ function initializeShopContextValue(): ShopContextValue {
       appViewModel: {
          currentPage: Pages.Empty,
          currentPageViewModel: {},
-      }
+      },
    }
 }
 

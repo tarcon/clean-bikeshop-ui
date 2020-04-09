@@ -11,10 +11,10 @@ export type AppViewModel = {
    currentPageViewModel: object
 }
 
-export function ShopContextProvider(props: { children: React.ReactNode}) {
+export function ShopContextProvider(props: { children: React.ReactNode }) {
    let [appViewModel, setAppViewModel] = useState<AppViewModel>({
       currentPage: Pages.Empty,
-      currentPageViewModel: {}
+      currentPageViewModel: {},
    })
 
    const storage = new BikeStorageGateway()
@@ -23,7 +23,7 @@ export function ShopContextProvider(props: { children: React.ReactNode}) {
       const state = {
          ...appViewModel,
          currentPage: Pages.Welcome,
-         currentPageViewModel:welcomeViewModel
+         currentPageViewModel: welcomeViewModel,
       }
       setAppViewModel(state)
    })
@@ -32,14 +32,14 @@ export function ShopContextProvider(props: { children: React.ReactNode}) {
       const state = {
          ...appViewModel,
          currentPage: Pages.Bikes,
-         currentPageViewModel: bikesViewModel
+         currentPageViewModel: bikesViewModel,
       }
       setAppViewModel(state)
    })
 
    const useCases = {
       SeeWelcome: new SeeWelcome(welcomePresenter),
-      SeeBikes: new SeeBikes(storage, bikesPresenter)
+      SeeBikes: new SeeBikes(storage, bikesPresenter),
    }
 
    useEffect(() => {
