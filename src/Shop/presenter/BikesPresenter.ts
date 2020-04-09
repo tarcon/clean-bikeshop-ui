@@ -11,17 +11,18 @@ export class BikesPresenter implements DisplaysBikes {
    }
 
    public showBikes(presentableBikes: SeeBikesOutput) {
-      const viewModel = this.createBikesViewModel(presentableBikes)
+      const viewModel = BikesPresenter.createBikesViewModel(presentableBikes)
       this._renderFn(viewModel)
    }
 
-   private createBikesViewModel(presentableBikes: SeeBikesOutput) {
+   private static createBikesViewModel(presentableBikes: SeeBikesOutput) {
       return presentableBikes.map(bike => ({
          name: bike.name,
          price: bike.price.toLocaleString("de-DE", {
             style: "currency",
             currency: "EUR",
          }),
+         productImageUrl: bike.productImageUrl,
          description: bike.description,
       }))
    }
