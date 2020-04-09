@@ -10,7 +10,12 @@ describe("Bike storage", () => {
 
    it("can map stored bike entity to domain bike entity", async () => {
       BikeStorage.StoredBikes = [
-         { name: "name", price: "1337", productImageFileName: "file.jpg", description: "description" },
+         {
+            name: "name",
+            price: "1337",
+            productImageFileName: "file.jpg",
+            description: "description",
+         },
       ]
       const expectedBike = new Bike("name", 1337, "file.jpg", "description")
 
@@ -28,10 +33,20 @@ describe("Bike storage", () => {
       expect(fetchedBikes).toStrictEqual([])
    })
 
-   it("returns available stored bikes", async() => {
+   it("returns available stored bikes", async () => {
       BikeStorage.StoredBikes = [
-         { name: "name", price: "1337", productImageFileName: "file1.jpg", description: "description" },
-         { name: "name2", price: "123", productImageFileName: "file2.jpg", description: "description2" },
+         {
+            name: "name",
+            price: "1337",
+            productImageFileName: "file1.jpg",
+            description: "description",
+         },
+         {
+            name: "name2",
+            price: "123",
+            productImageFileName: "file2.jpg",
+            description: "description2",
+         },
       ]
 
       const fetchedBikes = await new BikeStorageGateway().fetchPurchasableBikes()

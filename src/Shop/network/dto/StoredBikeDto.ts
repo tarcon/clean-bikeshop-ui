@@ -1,6 +1,6 @@
 export type StoredBikeDto = {
    name: string
    price: number
-   productImageFileName: string,
+   productImageFileName: string
    description: string
 }

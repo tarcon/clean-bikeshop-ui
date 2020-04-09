@@ -4,7 +4,12 @@ export class Bike {
    private _productImageFileName: string
    private _description: string
 
-   constructor(name: string, price: number, productImageFileName: string, description: string) {
+   constructor(
+      name: string,
+      price: number,
+      productImageFileName: string,
+      description: string
+   ) {
       this._name = name
       this._price = price
       this._productImageFileName = productImageFileName

@@ -9,7 +9,7 @@ describe("welcome presenter", () => {
       sut.showWelcome()
 
       expect(testRenderFn).toHaveBeenCalledWith({
-         welcomeText: expect.any(String)
+         welcomeText: expect.any(String),
       })
    })
 })

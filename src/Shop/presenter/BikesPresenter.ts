@@ -3,7 +3,6 @@ import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 import { BikesViewModel } from "./BikesViewModel"
 
 export class BikesPresenter implements DisplaysBikes {
-
    private _renderFn: (viewModel: any) => void
 
    constructor(renderFn: (viewModel: BikesViewModel) => void) {
@@ -26,5 +25,4 @@ export class BikesPresenter implements DisplaysBikes {
          description: bike.description,
       }))
    }
-
 }

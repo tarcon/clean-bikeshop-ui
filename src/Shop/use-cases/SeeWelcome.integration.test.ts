@@ -15,9 +15,9 @@ describe("SeeWelcome use case", () => {
    it("outputs welcome text to the presenter", () => {
       const useCase = new SeeWelcome(mockUi)
 
-      useCase.execute();
+      useCase.execute()
 
-      expect(mockUi.showWelcome).toHaveBeenCalled();
+      expect(mockUi.showWelcome).toHaveBeenCalled()
    })
 
    beforeAll(() => {

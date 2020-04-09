@@ -4,7 +4,9 @@ import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 
 export class BikeStorageGateway implements ProvidesBikes {
    public fetchPurchasableBikes(): Promise<Array<Bike>> {
-      return Promise.resolve(BikeStorage.StoredBikes.map(BikeStorageGateway.mapToBike))
+      return Promise.resolve(
+         BikeStorage.StoredBikes.map(BikeStorageGateway.mapToBike)
+      )
    }
 
    private static mapToBike(storedBike: StoredBike): Bike {

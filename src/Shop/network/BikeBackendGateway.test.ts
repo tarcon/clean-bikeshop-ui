@@ -1,7 +1,6 @@
 import { BikeBackendGateway } from "./BikeBackendGateway"
 
 describe("BikeBackendGateway", () => {
-
    it("can fetch bikes ", async () => {
       const gateway = new BikeBackendGateway()
 
@@ -9,5 +8,4 @@ describe("BikeBackendGateway", () => {
          await gateway.fetchPurchasableBikes()
       }).not.toThrow()
    })
-
 })

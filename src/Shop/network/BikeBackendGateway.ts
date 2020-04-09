@@ -3,23 +3,23 @@ import { Bike } from "../entities/Bike"
 import { StoredBikeDto } from "./dto/StoredBikeDto"
 
 export class BikeBackendGateway implements ProvidesBikes {
-
    async fetchPurchasableBikes(): Promise<Array<Bike>> {
       const storedBikes = await fetch("http://api.bikeshop.de/bikes")
       return storedBikes.map(BikeBackendGateway.mapToBike)
    }
 
    private static mapToBike(dto: StoredBikeDto) {
-      return new Bike(dto.name,
+      return new Bike(
+         dto.name,
          dto.price,
          dto.productImageFileName,
-         dto.description)
+         dto.description
+      )
    }
 }
 
 //overwrite fetch() with a hardcoded response because we don't have a real backend
 function fetch(url: any): Promise<Array<StoredBikeDto>> {
-
    const data = [
       {
          name: "Carbono R3",
@@ -45,8 +45,7 @@ function fetch(url: any): Promise<Array<StoredBikeDto>> {
 
    return new Promise((resolve, reject) => {
       setTimeout(() => {
-            resolve(data)
-         },
-         1000)
+         resolve(data)
+      }, 1000)
    })
 }
