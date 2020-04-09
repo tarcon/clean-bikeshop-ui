@@ -3,38 +3,38 @@ import { BikeStorage } from "./BikeStorage"
 import { Bike } from "../entities/Bike"
 
 describe("Bike storage", () => {
-   it("can load available bikes", () => {
-      const bikes = new BikeStorageGateway().fetchPurchasableBikes()
+   it("can load available bikes", async () => {
+      const bikes = await new BikeStorageGateway().fetchPurchasableBikes()
       expect(bikes).toHaveLength(3)
    })
 
-   it("can map stored bike entity to domain bike entity", () => {
+   it("can map stored bike entity to domain bike entity", async () => {
       BikeStorage.StoredBikes = [
          { name: "name", price: "1337", productImageFileName: "file.jpg", description: "description" },
       ]
       const expectedBike = new Bike("name", 1337, "file.jpg", "description")
 
-      const fetchedBikes = new BikeStorageGateway().fetchPurchasableBikes()
+      const fetchedBikes = await new BikeStorageGateway().fetchPurchasableBikes()
 
       expect(fetchedBikes).toHaveLength(1)
       expect(fetchedBikes[0]).toStrictEqual(expectedBike)
    })
 
-   it("returns no bikes when no bikes are stored", () => {
+   it("returns no bikes when no bikes are stored", async () => {
       BikeStorage.StoredBikes = []
 
-      const fetchedBikes = new BikeStorageGateway().fetchPurchasableBikes()
+      const fetchedBikes = await new BikeStorageGateway().fetchPurchasableBikes()
 
       expect(fetchedBikes).toStrictEqual([])
    })
 
-   it("returns available stored bikes", () => {
+   it("returns available stored bikes", async() => {
       BikeStorage.StoredBikes = [
          { name: "name", price: "1337", productImageFileName: "file1.jpg", description: "description" },
          { name: "name2", price: "123", productImageFileName: "file2.jpg", description: "description2" },
       ]
 
-      const fetchedBikes = new BikeStorageGateway().fetchPurchasableBikes()
+      const fetchedBikes = await new BikeStorageGateway().fetchPurchasableBikes()
 
       expect(fetchedBikes).toHaveLength(2)
       expect(fetchedBikes[0]).toStrictEqual(

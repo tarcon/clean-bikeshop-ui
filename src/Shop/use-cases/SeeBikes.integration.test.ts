@@ -25,10 +25,10 @@ describe("SeeBikes use case", () => {
       expect(mockUi.showBikes).toHaveBeenCalledWith([])
    })
 
-   it("outputs bikes to the presenter", () => {
+   it("outputs bikes to the presenter", async() => {
       const useCase = new SeeBikes(mockStorage, mockUi)
 
-      useCase.execute()
+      await useCase.execute()
 
       expect(mockUi.showBikes).toHaveBeenCalled()
       expect(mockUi.showBikes).toHaveBeenCalledWith([

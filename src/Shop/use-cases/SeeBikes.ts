@@ -12,8 +12,8 @@ export class SeeBikes {
       this._ui = ui
    }
 
-   public execute(): void {
-      const fetchedBikes = this._bikeStorage.fetchPurchasableBikes()
+   public async execute(): Promise<void> {
+      const fetchedBikes = await this._bikeStorage.fetchPurchasableBikes()
 
       const bikesOutput = SeeBikes.mapToOutput(fetchedBikes)
       this._ui.showBikes(bikesOutput)
