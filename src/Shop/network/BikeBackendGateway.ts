@@ -46,6 +46,6 @@ function fetch(url: any): Promise<Array<StoredBikeDto>> {
    return new Promise(resolve => {
       setTimeout(() => {
          resolve(data)
-      }, 1000)
+      }, Math.random() * 1000)
    })
 }
