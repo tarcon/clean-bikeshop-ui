@@ -21,6 +21,7 @@ describe("Bike presenter", () => {
       //when
       sut.showBikes([
          {
+            ean: 123,
             name: "Bike1",
             price: 1337,
             productImageFileName: "file.jpg",
@@ -31,6 +32,7 @@ describe("Bike presenter", () => {
       //then
       expect(testRenderFn).toHaveBeenCalledWith([
          {
+            ean: 124,
             name: "Bike1",
             price: "1.337,00 €",
             productImageUrl: "./img/file.jpg",
