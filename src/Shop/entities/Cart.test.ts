@@ -9,7 +9,7 @@ describe("Cart", () => {
 
    it("can add a bike", () => {
       const cart = new Cart()
-      const bike = new Bike("bike", 1337, "pic.jpg", "description")
+      const bike = new Bike(123, "bike", 1337, "pic.jpg", "description")
 
       cart.addBike(bike)
 

@@ -1,19 +1,26 @@
 export class Bike {
+   private _ean: number
    private _name: string
    private _price: number
    private _productImageFileName: string
    private _description: string
 
    constructor(
+      ean: number,
       name: string,
       price: number,
       productImageFileName: string,
       description: string
    ) {
+      this._ean = ean
       this._name = name
       this._price = price
       this._productImageFileName = productImageFileName
       this._description = description
+   }
+
+   get ean(): number {
+      return this._ean
    }
 
    get name(): string {

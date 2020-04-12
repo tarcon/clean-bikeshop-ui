@@ -10,6 +10,7 @@ export class BikeBackendGateway implements ProvidesBikes {
 
    private static mapToBike(dto: StoredBikeDto) {
       return new Bike(
+         dto.ean,
          dto.name,
          dto.price,
          dto.productImageFileName,
@@ -22,6 +23,7 @@ export class BikeBackendGateway implements ProvidesBikes {
 function fetch(url: any): Promise<Array<StoredBikeDto>> {
    const data = [
       {
+         ean: 123908123,
          name: "Carbono R3",
          price: 4499,
          productImageFileName: "carbono.jpg",
@@ -29,6 +31,7 @@ function fetch(url: any): Promise<Array<StoredBikeDto>> {
             "A racing bike with a long heritage of classic race wins. Prefered by dentists.",
       },
       {
+         ean: 235235235,
          name: "Generalized Asphalt G-Works",
          price: 7999,
          productImageFileName: "gworks.jpg",
@@ -36,6 +39,7 @@ function fetch(url: any): Promise<Array<StoredBikeDto>> {
             "An even racier bike used by most of the professional riders. Made in china, but priced like artisan work from the USA.",
       },
       {
+         ean: 435643357,
          name: "Dungeon Ultra SLX",
          price: 5699,
          productImageFileName: "dungeon.jpg",

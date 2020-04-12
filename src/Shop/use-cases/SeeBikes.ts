@@ -25,6 +25,7 @@ export class SeeBikes {
 
    private static mapBikeToBikeOutput(bike: Bike): SeeBikeOutput {
       return {
+         ean: bike.ean,
          name: bike.name,
          price: bike.price,
          productImageFileName: bike.productImageFileName,

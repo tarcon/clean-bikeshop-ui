@@ -16,6 +16,7 @@ export class BikesPresenter implements DisplaysBikes {
 
    private static createBikesViewModel(presentableBikes: SeeBikesOutput) {
       return presentableBikes.map(bike => ({
+         ean: bike.ean,
          name: bike.name,
          price: bike.price.toLocaleString("de-DE", {
             style: "currency",

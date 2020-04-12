@@ -8,7 +8,7 @@ export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
          <div className="grid grid-flow-col gap-4 top">
             {props.bikesViewModel.map(bike => (
                <BikeProductCard
-                  key={bike.name}
+                  key={bike.ean}
                   name={bike.name}
                   price={bike.price}
                   productImageUrl={bike.productImageUrl}
