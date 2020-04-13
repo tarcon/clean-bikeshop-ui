@@ -12,7 +12,7 @@ describe("BikeBackendGateway", () => {
    it("can fetch one bike by ean", async () => {
       const gateway = new BikeBackendGateway()
 
-      const bike = await gateway.fetchBikeByEAN(123)
+      const bike = await gateway.fetchBikeByEAN(123908123)
       expect(bike).toBeDefined()
    })
 })

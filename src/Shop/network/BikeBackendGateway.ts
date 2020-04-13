@@ -10,7 +10,7 @@ export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
    }
 
    async fetchBikeByEAN(ean: number): Promise<Bike> {
-      const storedBike = await fetch("http://api.bikeshop.de/bike/123")
+      const storedBike = await fetch("http://api.bikeshop.de/bike/", ean)
       const bike = BikeBackendGateway.mapToBike(storedBike)
       return Promise.resolve(bike)
    }
@@ -27,10 +27,10 @@ export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
 }
 
 //overwrite fetch() with a hardcoded response because we don't have a real backend
-function fetch(url: string): Promise<any> {
+function fetch(url: string, ean?: number): Promise<any> {
    const data: any = {
       "http://api.bikeshop.de/bikes": fetchBikesData(),
-      "http://api.bikeshop.de/bike/123": fetchBikeData(),
+      "http://api.bikeshop.de/bike/": ean ? fetchBikeData(ean) : () => {},
    }
 
    return new Promise(resolve => {
@@ -68,13 +68,6 @@ function fetchBikesData(): Array<StoredBikeDto> {
    ]
 }
 
-function fetchBikeData(): StoredBikeDto {
-   return {
-      ean: 123908123,
-      name: "Carbono R3",
-      price: 4499,
-      productImageFileName: "carbono.jpg",
-      description:
-         "A racing bike with a long heritage of classic race wins. Prefered by dentists.",
-   }
+function fetchBikeData(ean: number): StoredBikeDto {
+   return fetchBikesData().filter(bike => bike.ean === ean)[0]
 }
