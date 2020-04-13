@@ -16,10 +16,10 @@ describe("SeeBikes use case", () => {
       }).not.toThrow()
    })
 
-   it("outputs no bikes to the presenter for an empty storage", () => {
+   it("outputs no bikes to the presenter for an empty storage", async () => {
       const useCase = new SeeBikes(backendWithoutBikes, ui)
 
-      useCase.execute()
+      await useCase.execute()
 
       expect(ui.showBikes).toHaveBeenCalled()
       expect(ui.showBikes).toHaveBeenCalledWith([])
@@ -42,7 +42,7 @@ describe("SeeBikes use case", () => {
       ])
    })
 
-   beforeAll(() => {
+   beforeEach(() => {
       jest.resetAllMocks()
 
       backendWithoutBikes = {
