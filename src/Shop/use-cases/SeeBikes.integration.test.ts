@@ -32,7 +32,7 @@ describe("SeeBikes use case", () => {
 
       expect(ui.showBikes).toHaveBeenCalled()
       expect(ui.showBikes).toHaveBeenCalledWith([
-         { name: "Bike", price: 1000, description: "nice Bike" },
+         { ean: 123, name: "Bike", price: 1000, description: "nice Bike" },
       ])
    })
 
@@ -44,11 +44,14 @@ describe("SeeBikes use case", () => {
       }
 
       backendWithABike = {
-         fetchPurchasableBikes: jest
-            .fn()
-            .mockReturnValue([
-               { name: "Bike", price: 1000, description: "nice Bike" } as Bike,
-            ]),
+         fetchPurchasableBikes: jest.fn().mockReturnValue([
+            {
+               ean: 123,
+               name: "Bike",
+               price: 1000,
+               description: "nice Bike",
+            } as Bike,
+         ]),
       }
 
       ui = {
