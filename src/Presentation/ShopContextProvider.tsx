@@ -8,10 +8,11 @@ import { BikeBackendGateway } from "../Shop/network/BikeBackendGateway"
 import { CartPresenter } from "../Shop/presenter/CartPresenter"
 import { AddBikeToCart } from "../Shop/use-cases/AddBikeToCart"
 import { CartStorageGateway } from "../Shop/storage/CartStorageGateway"
+import { CartViewModel } from "../Shop/presenter/CartViewModel"
 
 export type AppViewModel = {
    currentPage: Pages
-   shoppingCartViewModel?: object
+   shoppingCartViewModel?: CartViewModel
    currentPageViewModel: object
 }
 
