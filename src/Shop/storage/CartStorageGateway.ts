@@ -9,6 +9,6 @@ export class CartStorageGateway implements StoresCart {
    }
 
    getBikes(): ReadonlyArray<Bike> {
-      return Object.freeze(this._cart)
+      return Object.freeze([...this._cart])
    }
 }
