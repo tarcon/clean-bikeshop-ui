@@ -1,11 +1,18 @@
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 import { Bike } from "../entities/Bike"
 import { StoredBikeDto } from "./dto/StoredBikeDto"
+import { ProvidesBike } from "../boundaries/ProvidesBike"
 
-export class BikeBackendGateway implements ProvidesBikes {
+export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
    async fetchPurchasableBikes(): Promise<Array<Bike>> {
       const storedBikes = await fetch("http://api.bikeshop.de/bikes")
       return storedBikes.map(BikeBackendGateway.mapToBike)
+   }
+
+   async fetchBikeByEAN(ean: number): Promise<Bike> {
+      const storedBike = await fetch("http://api.bikeshop.de/bike/123")
+      const bike = BikeBackendGateway.mapToBike(storedBike)
+      return Promise.resolve(bike)
    }
 
    private static mapToBike(dto: StoredBikeDto) {
@@ -20,8 +27,21 @@ export class BikeBackendGateway implements ProvidesBikes {
 }
 
 //overwrite fetch() with a hardcoded response because we don't have a real backend
-function fetch(url: any): Promise<Array<StoredBikeDto>> {
-   const data = [
+function fetch(url: string): Promise<any> {
+   const data: any = {
+      "http://api.bikeshop.de/bikes": fetchBikesData(),
+      "http://api.bikeshop.de/bike/123": fetchBikeData(),
+   }
+
+   return new Promise(resolve => {
+      setTimeout(() => {
+         resolve(data[url])
+      }, Math.random() * 1000)
+   })
+}
+
+function fetchBikesData(): Array<StoredBikeDto> {
+   return [
       {
          ean: 123908123,
          name: "Carbono R3",
@@ -46,10 +66,15 @@ function fetch(url: any): Promise<Array<StoredBikeDto>> {
          description: "German engineered racing bike with nice looks.",
       },
    ]
+}
 
-   return new Promise(resolve => {
-      setTimeout(() => {
-         resolve(data)
-      }, Math.random() * 1000)
-   })
+function fetchBikeData(): StoredBikeDto {
+   return {
+      ean: 123908123,
+      name: "Carbono R3",
+      price: 4499,
+      productImageFileName: "carbono.jpg",
+      description:
+         "A racing bike with a long heritage of classic race wins. Prefered by dentists.",
+   }
 }
