@@ -2,5 +2,5 @@ import { Bike } from "../entities/Bike"
 
 export interface StoresCart {
    addBike(bike: Bike): void
-   getBikes(): Array<Bike>
+   getBikes(): ReadonlyArray<Bike>
 }
