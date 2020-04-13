@@ -1,8 +1,9 @@
 import { DisplaysCart } from "../boundaries/DisplaysCart"
 import { AddBikeToCartOutput } from "../use-cases/AddBikeToCartOutput"
 import { CartViewModel } from "./CartViewModel"
+import { DisplaysError } from "../boundaries/DisplaysError"
 
-export class CartPresenter implements DisplaysCart {
+export class CartPresenter implements DisplaysCart, DisplaysError {
    private _renderFn: (viewModel: any) => void
 
    constructor(renderFn: (viewModel: CartViewModel) => void) {
@@ -12,6 +13,10 @@ export class CartPresenter implements DisplaysCart {
    displayCart(cartOutput: AddBikeToCartOutput): void {
       const viewModel = CartPresenter.createCartViewModel(cartOutput)
       this._renderFn(viewModel)
+   }
+
+   displayError(error: string): void {
+      console.error(error)
    }
 
    private static createCartViewModel(
