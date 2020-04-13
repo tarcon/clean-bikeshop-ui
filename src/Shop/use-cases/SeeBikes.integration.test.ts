@@ -1,7 +1,7 @@
 import { SeeBikes } from "./SeeBikes"
 import { DisplaysBikes } from "../boundaries/DisplaysBikes"
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
-import { Bike } from "../entities/Bike"
+import { aBike } from "../entities/BikeProvisioning"
 
 describe("SeeBikes use case", () => {
    let backendWithoutBikes: ProvidesBikes
@@ -32,7 +32,13 @@ describe("SeeBikes use case", () => {
 
       expect(ui.showBikes).toHaveBeenCalled()
       expect(ui.showBikes).toHaveBeenCalledWith([
-         { ean: 123, name: "Bike", price: 1000, description: "nice Bike" },
+         {
+            ean: 123,
+            name: "Bike",
+            price: 1000,
+            productImageFileName: "pic.jpg",
+            description: "nice Bike",
+         },
       ])
    })
 
@@ -44,14 +50,7 @@ describe("SeeBikes use case", () => {
       }
 
       backendWithABike = {
-         fetchPurchasableBikes: jest.fn().mockReturnValue([
-            {
-               ean: 123,
-               name: "Bike",
-               price: 1000,
-               description: "nice Bike",
-            } as Bike,
-         ]),
+         fetchPurchasableBikes: jest.fn().mockReturnValue([aBike()]),
       }
 
       ui = {

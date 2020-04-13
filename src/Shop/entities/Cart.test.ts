@@ -1,5 +1,5 @@
 import { Cart } from "./Cart"
-import { Bike } from "./Bike"
+import { aBike } from "./BikeProvisioning"
 
 describe("Cart", () => {
    it("can be created without bikes", () => {
@@ -9,7 +9,7 @@ describe("Cart", () => {
 
    it("can add a bike", () => {
       const cart = new Cart()
-      const bike = new Bike(123, "bike", 1337, "pic.jpg", "description")
+      const bike = aBike()
 
       cart.addBike(bike)
 

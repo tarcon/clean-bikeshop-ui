@@ -32,7 +32,7 @@ describe("Bike presenter", () => {
       //then
       expect(testRenderFn).toHaveBeenCalledWith([
          {
-            ean: 124,
+            ean: 123,
             name: "Bike1",
             price: "1.337,00 €",
             productImageUrl: "./img/file.jpg",
