@@ -26,18 +26,25 @@ describe("CartPresenter", () => {
       const cartOutput = {
          bikes: [
             {
-               name: "Bike",
+               name: "Bike1",
                price: 1337,
             } as CartBikeOutput,
+            {
+               name: "Bike2",
+               price: 1338,
+            } as CartBikeOutput,
          ],
-         totalPrice: 1337,
+         totalPrice: 2675,
       }
 
       presenter.displayCart(cartOutput)
 
       expect(testRenderFn).toHaveBeenCalledWith({
-         bikes: [{ name: "Bike", price: "1.337,00 €" }],
-         totalPrice: "1.337,00 €",
+         bikes: [
+            { name: "Bike1", price: "1.337,00 €" },
+            { name: "Bike2", price: "1.338,00 €" },
+         ],
+         totalPrice: "2.675,00 €",
       })
    })
 
