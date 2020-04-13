@@ -8,7 +8,7 @@ import { ShopContext } from "../../ShopContext"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
    return (
-      <div className="p-8">
+      <div>
          <h2>Bikes</h2>
          <div className="grid grid-flow-col gap-4 top">
             {props.bikesViewModel.map(bike => (
@@ -35,12 +35,12 @@ function BikeProductCard({
 }: BikeViewModel) {
    const shopContext = useContext(ShopContext)
 
-   const handleAddToCart = () => {
+   const handleAddToCart = async () => {
       const addBikeToCartInput: AddBikeToCartInput = {
          ean: ean,
       }
 
-      shopContext.useCases["AddBikeToCart"].execute(addBikeToCartInput)
+      await shopContext.useCases["AddBikeToCart"].execute(addBikeToCartInput)
    }
 
    return (

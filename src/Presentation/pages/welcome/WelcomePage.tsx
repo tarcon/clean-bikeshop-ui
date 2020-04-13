@@ -4,7 +4,7 @@ import React from "react"
 
 export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
    return (
-      <div className="p-8">
+      <div>
          <div className="flex mb-4">
             <div className="w-1/2 h-12">
                <p>{props.welcomeViewModel.welcomeText}</p>

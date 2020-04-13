@@ -9,6 +9,7 @@ import { Header } from "./frame/Header"
 import { Navigation } from "./frame/Navigation"
 
 import "./css/tailwind.css"
+import { ShoppingCart } from "./ShoppingCart"
 
 function App() {
    const shopContext = useContext(ShopContext)
@@ -44,7 +45,14 @@ function App() {
          <Header />
          <Navigation />
          <hr />
-         <section>{content}</section>
+         <div className="flex p-8">
+            <div className="flex-auto">
+               <section>{content}</section>
+            </div>
+            <div className="flex-none">
+               <ShoppingCart />
+            </div>
+         </div>
       </>
    )
 }
