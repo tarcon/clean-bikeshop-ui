@@ -4,10 +4,8 @@ import { Pages, ShopContext } from "./ShopContext"
 import { SeeBikes } from "../Shop/use-cases/SeeBikes"
 import { WelcomePresenter } from "../Shop/presenter/WelcomePresenter"
 import { SeeWelcome } from "../Shop/use-cases/SeeWelcome"
-import { BikeBackendGateway } from "../Shop/network/BikeBackendGateway"
 import { CartPresenter } from "../Shop/presenter/CartPresenter"
 import { AddBikeToCart } from "../Shop/use-cases/AddBikeToCart"
-import { CartStorageGateway } from "../Shop/storage/CartStorageGateway"
 import { CartViewModel } from "../Shop/presenter/CartViewModel"
 
 export type AppViewModel = {
@@ -16,13 +14,15 @@ export type AppViewModel = {
    currentPageViewModel: object
 }
 
-export function ShopContextProvider(props: { children: React.ReactNode }) {
+export function ShopContextProvider(props: {
+   bikeBackend: any
+   cartStorage: any
+   children: React.ReactNode
+}) {
    let [appViewModel, setAppViewModel] = useState<AppViewModel>({
       currentPage: Pages.Empty,
       currentPageViewModel: {},
    })
-
-   const bikeBackend = new BikeBackendGateway()
 
    const welcomePresenter = new WelcomePresenter(welcomeViewModel => {
       const state = {
@@ -50,12 +50,14 @@ export function ShopContextProvider(props: { children: React.ReactNode }) {
       setAppViewModel(state)
    })
 
-   const cartStorage = new CartStorageGateway()
-
    const useCases = {
       SeeWelcome: new SeeWelcome(welcomePresenter),
-      SeeBikes: new SeeBikes(bikeBackend, bikesPresenter),
-      AddBikeToCart: new AddBikeToCart(bikeBackend, cartStorage, cartPresenter),
+      SeeBikes: new SeeBikes(props.bikeBackend, bikesPresenter),
+      AddBikeToCart: new AddBikeToCart(
+         props.bikeBackend,
+         props.cartStorage,
+         cartPresenter
+      ),
    }
 
    useEffect(() => {
