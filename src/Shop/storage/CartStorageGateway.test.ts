@@ -11,7 +11,6 @@ describe("CartStorageGateway", () => {
 
       expect(bikes).toHaveLength(1)
 
-      console.log(bikes[0].name)
       expect(bikes[0]).toStrictEqual(aBike())
    })
 
