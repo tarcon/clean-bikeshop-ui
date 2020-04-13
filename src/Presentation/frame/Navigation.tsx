@@ -25,11 +25,6 @@ export function Navigation() {
                See Bikes
             </NavigationButton>
          </li>
-         <li className="mr-6">
-            <button className="text-gray-400 cursor-not-allowed">
-               Shopping Cart
-            </button>
-         </li>
       </ul>
    )
 }
