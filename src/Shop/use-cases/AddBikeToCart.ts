@@ -35,7 +35,7 @@ export class AddBikeToCart {
    }
 
    private static createOutputFromCart(
-      cartBikes: Array<Bike>
+      cartBikes: ReadonlyArray<Bike>
    ): AddBikeToCartOutput {
       return {
          bikes: cartBikes.map(AddBikeToCart.mapCartBikeOutput),
