@@ -11,11 +11,11 @@ describe("AddBikeToCart", () => {
       const backend = new BikeBackendGateway()
       const cart = new CartStorageGateway()
 
+      const useCase = new AddBikeToCart(backend, cart, ui)
+
       const bikeToAdd = {
          ean: 123908123,
       }
-
-      const useCase = new AddBikeToCart(backend, cart, ui)
 
       await useCase.execute(bikeToAdd)
       await useCase.execute(bikeToAdd)
