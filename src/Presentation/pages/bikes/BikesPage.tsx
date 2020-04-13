@@ -2,9 +2,10 @@ import {
    BikesViewModel,
    BikeViewModel,
 } from "../../../Shop/presenter/BikesViewModel"
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { AddBikeToCartInput } from "../../../Shop/use-cases/AddBikeToCartInput"
 import { ShopContext } from "../../ShopContext"
+import { InlineProgressIndicator } from "../../components/InlineProgressIndicator"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
    return (
@@ -34,13 +35,17 @@ function BikeProductCard({
    description,
 }: BikeViewModel) {
    const shopContext = useContext(ShopContext)
+   const [isLoading, setLoading] = useState(false)
 
    const handleAddToCart = async () => {
+      setLoading(true)
+
       const addBikeToCartInput: AddBikeToCartInput = {
          ean: ean,
       }
 
       await shopContext.useCases["AddBikeToCart"].execute(addBikeToCartInput)
+      setLoading(false)
    }
 
    return (
@@ -62,7 +67,7 @@ function BikeProductCard({
                className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded"
                onClick={handleAddToCart}
             >
-               Add to cart
+               Add to cart {isLoading && <InlineProgressIndicator />}
             </button>
          </div>
       </div>
