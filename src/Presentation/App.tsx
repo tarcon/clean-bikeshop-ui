@@ -45,13 +45,11 @@ function App() {
          <Header />
          <Navigation />
          <hr />
-         <div className="flex p-8">
-            <div className="flex-auto">
+         <div className="grid grid-flow-col gap-4 p-8">
+            <div className="">
                <section>{content}</section>
             </div>
-            <div className="flex-none">
-               <ShoppingCart />
-            </div>
+            <ShoppingCart />
          </div>
       </>
    )
