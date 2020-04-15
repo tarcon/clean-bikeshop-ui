@@ -39,9 +39,7 @@ export class AddBikeToCart {
    ): AddBikeToCartOutput {
       return {
          bikes: cartBikes.map(AddBikeToCart.mapCartBikeOutput),
-         totalPrice: cartBikes.reduce<number>((sum, bike) => {
-            return sum + bike.price
-         }, 0),
+         totalPrice: AddBikeToCart.calculateTotalPrice(cartBikes),
       }
    }
 
@@ -50,5 +48,11 @@ export class AddBikeToCart {
          name: bike.name,
          price: bike.price,
       }
+   }
+
+   private static calculateTotalPrice(cartBikes: ReadonlyArray<Bike>) {
+      return cartBikes.reduce<number>((sum, bike) => {
+         return sum + bike.price
+      }, 0)
    }
 }
