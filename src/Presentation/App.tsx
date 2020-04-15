@@ -46,9 +46,7 @@ function App() {
          <Navigation />
          <hr />
          <div className="grid grid-flow-col gap-4 p-8">
-            <div className="">
-               <section>{content}</section>
-            </div>
+            <section>{content}</section>
             <ShoppingCart />
          </div>
       </>
