@@ -2,7 +2,7 @@ import { AddBikeToCart } from "./AddBikeToCart"
 import { DisplaysError } from "../boundaries/DisplaysError"
 import { DisplaysCart } from "../boundaries/DisplaysCart"
 import { BikeBackendGateway } from "../network/BikeBackendGateway"
-import { CartStorageGateway } from "../storage/CartStorageGateway"
+import { CartStorageGateway } from "../../Storage/CartStorageGateway"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart

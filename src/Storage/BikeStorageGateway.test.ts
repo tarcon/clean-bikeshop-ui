@@ -1,9 +1,9 @@
 import { BikeStorageGateway } from "./BikeStorageGateway"
 import { BikeStorage } from "./BikeStorage"
-import { Bike } from "../entities/Bike"
-import { aBike } from "../entities/BikeProvisioning"
+import { Bike } from "../Shop/entities/Bike"
+import { aBike } from "../Shop/entities/BikeProvisioning"
 
-describe("Bike storage", () => {
+describe("Bike Storage", () => {
    it("can load available bikes", async () => {
       const bikes = await new BikeStorageGateway().fetchPurchasableBikes()
       expect(bikes).toHaveLength(3)

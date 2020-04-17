@@ -1,5 +1,5 @@
 import { CartStorageGateway } from "./CartStorageGateway"
-import { aBike } from "../entities/BikeProvisioning"
+import { aBike } from "../Shop/entities/BikeProvisioning"
 
 describe("CartStorageGateway", () => {
    it("can add and get a bike", () => {

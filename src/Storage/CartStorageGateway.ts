@@ -1,5 +1,5 @@
-import { StoresCart } from "../boundaries/StoresCart"
-import { Bike } from "../entities/Bike"
+import { StoresCart } from "../Shop/boundaries/StoresCart"
+import { Bike } from "../Shop/entities/Bike"
 
 export class CartStorageGateway implements StoresCart {
    private _cart: Array<Bike> = []

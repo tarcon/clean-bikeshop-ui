@@ -16,7 +16,7 @@ describe("SeeBikes use case", () => {
       }).not.toThrow()
    })
 
-   it("outputs no bikes to the presenter for an empty storage", async () => {
+   it("outputs no bikes to the presenter for an empty Storage", async () => {
       const useCase = new SeeBikes(backendWithoutBikes, ui)
 
       await useCase.execute()

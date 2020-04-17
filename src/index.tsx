@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
 import App from "./Presentation/App"
 import { ShopContextProvider } from "./Presentation/ShopContextProvider"
 import { BikeBackendGateway } from "./Shop/network/BikeBackendGateway"
-import { CartStorageGateway } from "./Shop/storage/CartStorageGateway"
+import { CartStorageGateway } from "./Storage/CartStorageGateway"
 
 const bikeBackend = new BikeBackendGateway()
 const cartStorage = new CartStorageGateway()
