@@ -10,7 +10,6 @@ import { InlineProgressIndicator } from "../../components/InlineProgressIndicato
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
    return (
       <div>
-         <h2>Bikes</h2>
          <div className="grid grid-flow-col gap-4 top">
             {props.bikesViewModel.map(bike => (
                <BikeProductCard
