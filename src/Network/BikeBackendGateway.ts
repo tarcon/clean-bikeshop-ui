@@ -1,7 +1,7 @@
-import { ProvidesBikes } from "../boundaries/ProvidesBikes"
-import { Bike } from "../entities/Bike"
+import { ProvidesBikes } from "../Shop/boundaries/ProvidesBikes"
+import { Bike } from "../Shop/entities/Bike"
 import { StoredBikeDto } from "./dto/StoredBikeDto"
-import { ProvidesBike } from "../boundaries/ProvidesBike"
+import { ProvidesBike } from "../Shop/boundaries/ProvidesBike"
 
 export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
    async fetchPurchasableBikes(): Promise<Array<Bike>> {
